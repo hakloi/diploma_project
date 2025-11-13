@@ -16,7 +16,7 @@ def get_all_users():
     return {"users": list(users.values())}
 
 @router.get("/{user_id}")
-def read_user(user_id: int):
+def get_user_by_id(user_id: int):
     if user_id in users:
         return users[user_id]
     return {"error": "User not found"}
