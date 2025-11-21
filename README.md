@@ -4,11 +4,11 @@ The purpose of this website is to combine the openness of a blog platform like M
 
 Project structure:
 - /app - project core
--- /app/models - describes objects
--- /app/repositories - interect with db 
--- /routes - endpoints for each entity
--- /schemas - pydantic schemas, validation models
--- /services - functions, project logic
--- /utils - utilities functions
+- /app/models - describes objects
+- /app/repositories - interect with db 
+- /app/routes - endpoints for each entity
+- /app/schemas - pydantic schemas, validation models
+- /app/services - functions, project logic
+
 - requirements.txt - the list of required frameworks
 - main.py - the start point of the project
