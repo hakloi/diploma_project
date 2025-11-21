@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from datetime import datetime
+from category import CategoryResponse
 
 class CourseBase(BaseModel):
     name: str = Field(..., min_length=1, max_length=200, description="Course name")
@@ -28,6 +29,13 @@ class CourseResponse(CourseBase):
     updated_at: Optional[datetime]
     is_active: bool
     total_enrollments: int = Field(default=0)
+    category: CategoryResponse = Field(..., description="Category details")
     
     class Config:
         from_attributes = True
+        
+class CourseListResponse(BaseModel):
+    courses: list[CourseResponse]
+    total: int
+
+    
