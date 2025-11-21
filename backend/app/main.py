@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from api import user
+from routes import user
 import uvicorn
 
 
