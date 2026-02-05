@@ -11,23 +11,21 @@ TopicType = Annotated[str, Field(min_length=2, max_length=50)]
 class CourseBase(BaseModel):
     name: NameType
     description: DescriptionType
+    topic: TopicType
 
 # параметры важные для создания курса
 class CourseCreate(CourseBase):
-    topic: TopicType
-    rating: float = Field(ge=0, le=5)
-
+    pass
 # параметры которые будут выходить при чтении
 class CourseOut(CourseBase):
     model_config = ConfigDict(from_attributes=True)
 
     course_id: IdType
-    topic: str
     rating: float
-    owner_id: int
+    # owner_id: int
 
 # параметры для изменения курса
 class CourseUpdate(BaseModel):
     name: NameType | None = None
     description: DescriptionType | None = None
-    rating: float | None = Field(default=None, ge=0, le=5)
+    topic: TopicType | None = None
